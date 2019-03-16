@@ -12,7 +12,6 @@ def swap_row(A, i, j):
     return A_copy
 
 def make_row_echelon_form(A):
-    A_copy = A
     N = len(A)
     for i in range(0, N):
         # Search for index of the maximum value in column i
@@ -27,11 +26,11 @@ def make_row_echelon_form(A):
             c = -A[k][i]/A[i][i]
             for j in range(i, N+1):
                 if i == j:
-                    A_copy[k][j] = 0
+                    A[k][j] = 0
                 else:
-                    A_copy[k][j] += c * A[i][j]
+                    A[k][j] += c * A[i][j]
     
-    return A_copy
+    return A
 
 def backward_substitution(A):
     N = len(A)
