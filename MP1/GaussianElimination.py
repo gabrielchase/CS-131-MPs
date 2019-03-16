@@ -18,11 +18,11 @@ def make_row_echelon_form(A):
         # Search for index of the maximum value in column i
         max_row = np.argmax(A[:,i])
         
-        # Swap maximum row with current row (column by column)
+        # Swap maximum row with i
         if i != (N-1):
             swap_row(A, max_row, i)
         
-        # Make all rows below this one 0 in current column
+        # Make all rows below row i 0 
         for k in range(i+1, N):
             c = -A[k][i]/A[i][i]
             for j in range(i, N+1):
