@@ -1,15 +1,8 @@
 import numpy as np 
 
-A = np.array([
-    [-3, 2, -1, -1], 
-    [6, -6, 7, -7], 
-    [3, -4, 4, -6]
-])
-
 def swap_row(A, i, j):
-    A_copy = A
-    A_copy[[i, j]] = A_copy[[j, i]]
-    return A_copy
+    A[[i, j]] = A[[j, i]]
+    return A
 
 def make_row_echelon_form(A):
     N = len(A)
@@ -17,7 +10,7 @@ def make_row_echelon_form(A):
         # Search for index of the maximum value in column i
         max_row = np.argmax(A[:,i])
         
-        # Swap maximum row with i
+        # Swap maximum row with row i
         if i != (N-1):
             swap_row(A, max_row, i)
         
@@ -49,6 +42,11 @@ def gauss_elimination(A):
     return x
 
 if __name__ == "__main__":
+    A = np.array([
+        [-3, 2, -1, -1], 
+        [6, -6, 7, -7], 
+        [3, -4, 4, -6]
+    ])
     print('A: ', A[:, :len(A)])
     print('b: ', A[:, len(A):len(A)+1])
     x = gauss_elimination(A)
