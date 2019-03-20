@@ -69,8 +69,6 @@ def lu_decomposition(A):
 
         Y = compute_y(L, B, N)
 
-    
-
     X = compute_x(U, Y, N)
 
     return L, U, Y, X

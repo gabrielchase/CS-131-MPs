@@ -16,7 +16,7 @@ def make_row_echelon_form(A):
         
         # Make all rows below row i 0 
         for k in range(i+1, N):
-            c = -A[k][i]/A[i][i]
+            c = -A[k][i] / A[i][i]
             for j in range(i, N+1):
                 if i == j:
                     A[k][j] = 0
